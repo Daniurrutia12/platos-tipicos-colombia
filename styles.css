@@ -1,0 +1,324 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+    --primary-color: #FFD700;
+    --secondary-color: #003366;
+    --accent-color: #C60C30;
+    --text-color: #333;
+    --light-bg: #f8f9fa;
+    --border-color: #ddd;
+}
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--light-bg);
+}
+.header {
+    background: linear-gradient(135deg, var(--secondary-color) 0%, var(--accent-color) 100%);
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.header-content h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+.header-content p {
+    font-size: 1.2rem;
+    opacity: 0.95;
+}
+.navbar {
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.nav-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.search-box {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 15px;
+    transition: border-color 0.3s;
+}
+.search-box:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(198, 12, 48, 0.1);
+}
+.filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.filter-btn {
+    padding: 10px 18px;
+    border: 2px solid var(--border-color);
+    background-color: white;
+    color: var(--text-color);
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+.filter-btn:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+.filter-btn.active {
+    background-color: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+}
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+.platos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+.plato-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+    cursor: pointer;
+}
+.plato-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.plato-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    background-color: var(--light-bg);
+}
+.plato-info {
+    padding: 20px;
+}
+.plato-region {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.plato-name {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--secondary-color);
+}
+.plato-description {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 15px;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.plato-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.btn-more {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+.btn-more:hover {
+    background-color: #a00a26;
+}
+.plato-ingredients-count {
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: 500;
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.3s;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 0;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 700px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: slideDown 0.3s;
+}
+@keyframes slideDown {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    padding: 15px 20px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+.close:hover {
+    color: var(--accent-color);
+}
+#modalBody {
+    padding: 30px;
+}
+.modal-header {
+    background: linear-gradient(135deg, var(--secondary-color) 0%, var(--accent-color) 100%);
+    color: white;
+    padding: 30px;
+    text-align: center;
+    border-radius: 12px 12px 0 0;
+}
+.modal-plato-name {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+.modal-plato-region {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.95rem;
+}
+.modal-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+.modal-section {
+    margin-bottom: 25px;
+}
+.modal-section-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: 12px;
+    border-bottom: 3px solid var(--accent-color);
+    padding-bottom: 8px;
+}
+.modal-description {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 15px;
+}
+.ingredients-list {
+    list-style: none;
+}
+.ingredients-list li {
+    padding: 8px 0;
+    padding-left: 25px;
+    position: relative;
+}
+.ingredients-list li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+.footer {
+    background-color: var(--secondary-color);
+    color: white;
+    text-align: center;
+    padding: 30px;
+    margin-top: 60px;
+}
+@media (max-width: 768px) {
+    .header-content h1 {
+        font-size: 2rem;
+    }
+    .platos-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 15px;
+    }
+    .filter-buttons {
+        flex-direction: column;
+    }
+    .filter-btn {
+        width: 100%;
+    }
+    .modal-content {
+        width: 95%;
+        margin: 20% auto;
+    }
+    .modal-header {
+        padding: 20px;
+    }
+    .modal-plato-name {
+        font-size: 1.5rem;
+    }
+}
+@media (max-width: 480px) {
+    .header-content h1 {
+        font-size: 1.5rem;
+    }
+    .header-content p {
+        font-size: 1rem;
+    }
+    .platos-grid {
+        grid-template-columns: 1fr;
+    }
+    .plato-card {
+        margin: 0;
+    }
+}
+.no-results {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px 20px;
+    color: #999;
+}
+.no-results h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+.no-results p {
+    font-size: 1rem;
+}

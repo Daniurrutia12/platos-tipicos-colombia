@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Platos Típicos de Colombia</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <h1>🇨🇴 Platos Típicos de Colombia</h1>
+            <p>Descubre la riqueza culinaria de cada región colombiana</p>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <div class="nav-content">
+            <input 
+                type="text" 
+                id="searchInput" 
+                class="search-box" 
+                placeholder="🔍 Buscar plato..."
+                aria-label="Buscar platos"
+            >
+            
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="todos">Todos</button>
+                <button class="filter-btn" data-filter="Caribe">Caribe</button>
+                <button class="filter-btn" data-filter="Andes">Andes</button>
+                <button class="filter-btn" data-filter="Pacífica">Pacífica</button>
+                <button class="filter-btn" data-filter="Amazonía">Amazonía</button>
+                <button class="filter-btn" data-filter="Llanos">Llanos</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="platos-grid" id="platosContainer">
+            <!-- Los platos se cargarán aquí dinámicamente -->
+        </section>
+    </main>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2026 Platos Típicos de Colombia. Hecho con ❤️ por Daniurrutia12</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
